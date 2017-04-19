@@ -1,3 +1,5 @@
+// I set it so  the lights would progressivly light up slower until it finishes. The last light will then flash red and cause the all the lights to change as well.
+
 // RGBW (Red Green Blue White Neo-Pixel starter code
 // 16 LEDS with no loop inside of void loop()
 // CW Coleman 170413
