@@ -1,0 +1,46 @@
+// RGBW (Red Green Blue White Neo-Pixel starter code
+// 16 LEDS  increment
+// CW Coleman 170413
+
+#include <Adafruit_NeoPixel.h>
+#ifdef __AVR__
+  #include <avr/power.h>
+#endif
+
+#define PIN 6
+
+#define NUM_LEDS 16
+
+#define BRIGHTNESS 50
+
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(NUM_LEDS, PIN, NEO_GRBW + NEO_KHZ800);
+
+
+void setup() {
+  Serial.begin(115200);
+  strip.setBrightness(BRIGHTNESS);
+  strip.begin();
+  strip.show(); // Initialize all pixels to 'off'
+}
+
+// Initialize some variables for the void loop()
+int red = 0, green= 0, blue = 0, white = 10;
+int wait = 100; //sets the pause between lights
+int led = 0;
+
+void loop() {
+    
+  strip.setPixelColor(led, red, green , blue, white);
+  strip.show();
+    delay(wait);
+    
+  red = red + 10;
+  blue = blue + 15;
+  white = white + 1;
+
+  // Increment the led.  This can also be done with led++
+  led = led + 1;
+  
+
+   Serial.println(red);
+}
